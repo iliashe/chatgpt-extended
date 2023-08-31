@@ -1,10 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import TheWelcome from './components/TheWelcome.vue'
+
+import Header from './components/Header.vue'
+import Sidebar from './components/Sidebar.vue'
+import Chat from './components/Chat.vue'
+import Input from './components/Input.vue'
 </script>
 
 <template>
-  <header>
+  <aside class="w-1/4">
+    <Sidebar />
+  </aside>
+  
+  <div class="h-full w-full flex flex-col">
+    <header class="w-full">
+      <Header />
+    </header>
+
+    <div class="h-full w-full">
+      <Chat />
+    </div>
+
+    <div class="h-1/4">
+      <Input />
+    </div>
+  </div>
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -14,11 +36,11 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <TheWelcome />
-  </main>
+  </main> -->
 </template>
 
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
 }
 
@@ -43,5 +65,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
+} */
 </style>

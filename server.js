@@ -6,23 +6,23 @@ const app = express()
 
 app.use(cors())
 
-const OpenAI = require('openai')
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// const OpenAI = require('openai')
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
 
-async function fn() {
-    const completion = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: 'Say this is a test' }],
-      model: 'gpt-3.5-turbo',
-    });
+// async function fn() {
+//   const completion = await openai.chat.completions.create({
+//     messages: [{ role: 'user', content: 'Say this is a test' }],
+//     model: 'gpt-3.5-turbo',
+//   });
   
-    console.log(completion.choices);
-  }
+//   console.log(completion.choices);
+// }
 
 
 app.get('/', (req, res, next) => {
-  fn()
+  res.send("hello")
 })
 
 const port = '5000'
