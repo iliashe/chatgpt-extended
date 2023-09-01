@@ -13,7 +13,7 @@ import Input from './components/Input.vue'
     <Sidebar />
   </aside>
   
-  <div class="h-full w-full flex flex-col">
+  <div class="w-full flex flex-col">
     <header class="w-full">
       <Header />
     </header>
@@ -22,7 +22,7 @@ import Input from './components/Input.vue'
       <Chat />
     </div>
 
-    <div class="h-1/4">
+    <div class="h-1/3 px-2 py-4">
       <Input />
     </div>
   </div>
