@@ -2,11 +2,11 @@
   <div class="flex flex-wrap gap-8">
     <textarea
       class="h-full p-4 rounded-md bg-black border-2 border-white"
-      v-model="store.inputMessage"
+      v-model.trim="store.inputMessage"
     >
     </textarea>
 
-    <button @click="sendMessage" class="px-8 py-2 bg-sky-500 rounded-md">Submit</button>
+    <button @click="sendMessage" class="h-max px-8 py-2 bg-sky-500 rounded-md">Submit</button>
   </div>
 </template>
 
@@ -18,14 +18,10 @@ const store = useInputStore()
 
 function sendMessage() {
   axios
-    .post(import.meta.env.VITE_API_URL, {
-      msg: store.inputMessage
+    .post(`${import.meta.env.VITE_API_URL}/conversation/send-message`, {
+      message: store.inputMessage
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err));
 }
 </script>
