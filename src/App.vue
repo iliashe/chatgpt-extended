@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full flex" v-if="user.isLogged">
+  <div class="h-full w-full flex">
     <aside class="h-full w-1/6">
       <Sidebar />
     </aside>
@@ -19,9 +19,11 @@
     </div>
   </div>
 
-  <div class="" v-else>
+  <!-- <div class="" v-else>
     <Form />
-  </div>
+  </div> -->
+
+
   <!-- <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
@@ -45,7 +47,19 @@ import Chat from './components/Chat.vue'
 import Input from './components/Input.vue'
 import Form from './components/Form.vue'
 
-import { useUserStore } from '@/stores/user'
+import { onMounted } from 'vue'
+import axios from 'axios'
 
+import { useUserStore } from '@/stores/user'
 const user = useUserStore()
+
+onMounted(() => {
+  axios
+    .get(import.meta.env.VITE_API_URL + "/user/conversations")
+    .then(res => user.conversations = res.data)
+    .catch(err => console.log(err))
+
+    console.log(Promise.resolve(user.conversations))
+})
+
 </script>

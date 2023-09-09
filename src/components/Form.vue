@@ -40,10 +40,9 @@ function submitForm() {
         password: password.value
       })
       .then(res => {
+        console.log(res.data)
         if (res.data) {
           user.isLogged = true
-        } else {
-          console.log(res)
         }
       })
       .catch(err => console.log(err))
