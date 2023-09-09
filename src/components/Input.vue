@@ -13,15 +13,29 @@
 <script setup>
 import axios from "axios"
 import { useInputStore } from "@/stores/input"
+import { useUserStore } from "@/stores/user";
 
 const store = useInputStore()
+const user = useUserStore()
 
 function sendMessage() {
   axios
     .post(`${import.meta.env.VITE_API_URL}/conversation/send-message`, {
+      conversationId: user.selectedConversation?.id,
       message: store.inputMessage
     })
-    .then(res => console.log(res.data))
+    .then(res => {
+      
+      console.log(res.data)
+      
+      // updating the selected conversation
+      
+      let conversation = user.conversations.find(conversation => conversation.id === user.selectedConversation.id)
+      conversation = res.data
+
+      user.selectedConversation = conversation    
+      
+    })
     .catch(err => console.log(err));
 }
 </script>

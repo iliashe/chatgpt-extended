@@ -5,6 +5,6 @@ export const useUserStore = defineStore('user', () => {
   const isLogged = false
 
   const conversations = []
-  const selectedConversation = undefined
+  const selectedConversation = null
 
 })

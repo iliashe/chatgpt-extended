@@ -56,10 +56,12 @@ const user = useUserStore()
 onMounted(() => {
   axios
     .get(import.meta.env.VITE_API_URL + "/user/conversations")
-    .then(res => user.conversations = res.data)
+    .then(res => {
+      console.log(res.data)
+      user.conversations = res.data
+    })
     .catch(err => console.log(err))
 
-    console.log(Promise.resolve(user.conversations))
 })
 
 </script>

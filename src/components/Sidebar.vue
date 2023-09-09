@@ -4,12 +4,12 @@
       v-for="(conversation, index) in user.conversations"
       :key="index"
       class="border border-white rounded p-4 cursor-pointer hover:bg-black/25"
-      :class="{ 'bg-black/25': user.selectedConversation?.id === conversation.id }"
+      :class="{ 'bg-black/25': user.selectedConversation?.id === conversation?.id }"
       @click="selectConversation(index)"
     >
       <h6 class="flex gap-2">
-        <i>{{ conversation.title }}</i>
-        <b>({{ conversation.id }})</b>
+        <i>{{ conversation?.title }}</i>
+        <b>({{ conversation?.id }})</b>
       </h6>
     </li>
   </ul>
