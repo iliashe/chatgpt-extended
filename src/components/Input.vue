@@ -6,11 +6,17 @@
     >
     </textarea>
 
-    <button @click="sendMessage" class="h-max px-8 py-2 bg-sky-500 rounded-md">Submit</button>
+    <SubmitButton @click="sendMessage"></SubmitButton>
   </div>
 </template>
 
 <script setup>
+// components
+
+import SubmitButton from "./SubmitButton.vue";
+
+// libraries
+
 import axios from "axios"
 import { useInputStore } from "@/stores/input"
 import { useUserStore } from "@/stores/user";
