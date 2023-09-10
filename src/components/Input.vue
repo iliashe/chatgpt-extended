@@ -25,15 +25,26 @@ function sendMessage() {
       message: store.inputMessage
     })
     .then(res => {
-      
       console.log(res.data)
-      
-      // updating the selected conversation
-      
-      let conversation = user.conversations.find(conversation => conversation.id === user.selectedConversation.id)
-      conversation = res.data
+      let updatedConversation
+      return updatedConversation = res.data
 
-      user.selectedConversation = conversation    
+    })
+    .then(updatedConversation => {
+      console.log(updatedConversation)
+      // update conversation if it existed before, else create new one
+      if (user.selectedConversation) {
+
+        let conversation = user.conversations.find(conversation => conversation.id === user.selectedConversation.id)
+        conversation = updatedConversation
+
+      } else {
+
+        user.conversations.push(updatedConversation)
+
+      }
+
+      user.selectedConversation = updatedConversation    
       
     })
     .catch(err => console.log(err));

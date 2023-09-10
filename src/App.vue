@@ -57,7 +57,6 @@ onMounted(() => {
   axios
     .get(import.meta.env.VITE_API_URL + "/user/conversations")
     .then(res => {
-      console.log(res.data)
       user.conversations = res.data
     })
     .catch(err => console.log(err))
