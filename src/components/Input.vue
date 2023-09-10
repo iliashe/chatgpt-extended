@@ -25,13 +25,13 @@ function sendMessage() {
       message: store.inputMessage
     })
     .then(res => {
-      console.log(res.data)
+
       let updatedConversation
       return updatedConversation = res.data
 
     })
     .then(updatedConversation => {
-      console.log(updatedConversation)
+
       // update conversation if it existed before, else create new one
       if (user.selectedConversation) {
 

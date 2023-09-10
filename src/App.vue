@@ -9,11 +9,11 @@
         <Header />
       </header>
   
-      <div class="h-full w-full">
+      <div class="h-full w-full overflow-y-auto">
         <Chat />
       </div>
   
-      <div class="min-h-1/3 px-2 py-4">
+      <div class="h-1/3 px-2 py-4">
         <Input />
       </div>
     </div>
@@ -57,6 +57,7 @@ onMounted(() => {
   axios
     .get(import.meta.env.VITE_API_URL + "/user/conversations")
     .then(res => {
+      console.log(res.data)
       user.conversations = res.data
     })
     .catch(err => console.log(err))
